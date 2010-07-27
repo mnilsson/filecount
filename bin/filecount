@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require 'filecount'
+
+if ARGV[0] != nil then 
+  dir = ARGV[0]
+else
+  dir = "."
+end
+
+fc = Filecount.new
+fc.run(dir)
+
+puts "#{fc.filecount} file(s) found"
