@@ -4,13 +4,12 @@ class Filecount
     @filecount = 0
   end
 
-  def run (dir)
-    Dir.entries(dir).each do |file|
+  def run (directory)
+    Dir.foreach(directory) do |file|
       if file != '.' && file != '..' then
-        if File.directory?(file)
-          fc = Filecount.new
-          fc.run(file)
-          @filecount += fc.filecount
+        f = "#{directory}/#{file}"
+        if File.directory?(f)
+          run(f)
         else
           @filecount += 1
         end
