@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Markus Nilsson"]
-  s.date = %q{2010-07-28}
+  s.date = %q{2010-07-29}
   s.default_executable = %q{filecount}
   s.description = %q{}
   s.email = %q{markus@mnilsson.se}
@@ -19,7 +19,11 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    "lib/filecount.rb"
+    "lib/filecount.rb",
+     "lib/filecount/args.rb",
+     "lib/filecount/counter.rb",
+     "lib/filecount/runner.rb",
+     "lib/run.rb"
   ]
   s.homepage = %q{http://github.com/mnilsson/filecount}
   s.rdoc_options = ["--charset=UTF-8"]
