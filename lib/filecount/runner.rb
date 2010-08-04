@@ -11,8 +11,9 @@ module Filecount
     end
 
     def execute
-      count = Counter.execute(@options)
-      puts "-- #{count} files found"
+      count = Counter.new(@options)
+      count.execute()
+      puts "-- #{count.file_count} files found in #{count.start_dir}"
     end
     
     def parse_options

@@ -1,9 +1,10 @@
 module Filecount
   class Counter
     
+    attr_accessor :file_count, :start_dir
     def initialize(options)
       @options = options
-      @count = 0
+      @file_count = 0
       @start_dir
     end
 
@@ -13,14 +14,16 @@ module Filecount
     
     def execute()
       if ARGV[0] != nil and File.directory?(ARGV[0])
+        @start_dir = File.expand_path(ARGV[0])
         count(ARGV[0])
       elsif ARGV[0] != nil
         puts "Directory '#{ARGV[0]}' not found"
         exit
       else
+        @start_dir = File.expand_path(".")
         count(".")
       end
-      @count
+      @file_count
     end
     
     def count (directory)
@@ -40,7 +43,7 @@ module Filecount
             if @options[:verbose]
               puts f
             end
-            @count += 1
+            @file_count += 1
           end
         end
       end
